@@ -8,6 +8,7 @@ import os
 import ssl
 import sys
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
@@ -107,8 +108,8 @@ def main():
         print("TELEGRAM_BOT_TOKEN ortam değişkeni tanımlı değil.", file=sys.stderr)
         sys.exit(1)
 
-    # Job başlangıç bildirimi
-    now = datetime.now().strftime("%d.%m.%Y %H:%M")
+    # Job başlangıç bildirimi (Türkiye saati)
+    now = datetime.now(ZoneInfo("Europe/Istanbul")).strftime("%d.%m.%Y %H:%M")
     start_msg = f"🚀 <b>İBB Rezervasyon Botu</b>\n\nKontrol başladı: {now}"
     send_telegram_message(token, chat_id, start_msg)
 
