@@ -107,6 +107,11 @@ def main():
         print("TELEGRAM_BOT_TOKEN ortam değişkeni tanımlı değil.", file=sys.stderr)
         sys.exit(1)
 
+    # Job başlangıç bildirimi
+    now = datetime.now().strftime("%d.%m.%Y %H:%M")
+    start_msg = f"🚀 <b>İBB Rezervasyon Botu</b>\n\nKontrol başladı: {now}"
+    send_telegram_message(token, chat_id, start_msg)
+
     available_facilities = []
 
     for name, facility_id in FACILITIES.items():
