@@ -2,7 +2,7 @@ name: İBB Rezervasyon Kontrolü
 
 on:
   schedule:
-    - cron: "0 6,12,18 * * *"
+    - cron: "0 3,6,9,12,15,18,21 * * *"
   workflow_dispatch:
 
 jobs:
